@@ -12,7 +12,7 @@ const Rules = () => {
         'Available for first-time depositors only',
         'Minimum deposit of $20 required',
         'Maximum bonus amount of $500',
-        'Must be claimed within 24 hours of registration'
+        'Bonus automatically applied to your account'
       ]
     },
     {
@@ -20,10 +20,10 @@ const Rules = () => {
       title: '50% Referral Bonus',
       description: 'Earn 50% bonus when you refer friends to Smugglers Gaming',
       details: [
-        'Bonus credited within 48 hours of friend\'s deposit',
+        'Must be claimed within 24 hours of friend\'s deposit',
         'No limit on number of referrals',
         'Automatic credit to your account',
-        'Stacks with other bonuses'
+        'Bonus credited within 48 hours of friend\'s deposit'
       ]
     },
     {
@@ -34,7 +34,7 @@ const Rules = () => {
         'Available for all registered players',
         'Can be claimed once per day',
         'Automatic credit to your account',
-        'Stacks with VIP rewards'
+        'No minimum deposit required'
       ]
     }
   ];
