@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Star, Shield, Zap, Crown } from 'lucide-react';
+import { ArrowRight, Star, Shield, Zap, Crown, MessageCircle } from 'lucide-react';
 import type { Page } from '../App';
 
 interface HomeProps {
@@ -123,6 +123,57 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Message Us Now Button Section */}
+      <section className="py-16 relative">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <motion.a
+              href="https://www.facebook.com/smugglers.gaming.hub.2025"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center gap-4 px-12 py-6 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 text-white rounded-2xl font-bold text-2xl overflow-hidden shadow-2xl"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              animate={{
+                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+              }}
+              transition={{
+                backgroundPosition: {
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: 'linear'
+                }
+              }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-blue-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              <span className="relative flex items-center gap-4">
+                <MessageCircle size={32} className="animate-pulse" />
+                <span className="text-2xl md:text-3xl font-bold">MESSAGE US NOW</span>
+                <ArrowRight size={32} className="group-hover:translate-x-2 transition-transform duration-300" />
+              </span>
+            </motion.a>
+            
+            <motion.p 
+              className="mt-6 text-lg text-gray-300"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              Get instant support and start your gaming journey today!
+            </motion.p>
+          </motion.div>
         </div>
       </section>
 

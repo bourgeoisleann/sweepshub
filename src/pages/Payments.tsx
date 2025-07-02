@@ -6,7 +6,7 @@ const Payments = () => {
   const paymentMethods = [
     {
       name: 'CashApp',
-      logo: '/cashapp.png',
+      logo: '/cashapp copy.png',
       url: 'https://buy.stripe.com/aEUeYH9P32yfdIk9AA'
     },
     {
