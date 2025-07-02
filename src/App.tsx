@@ -1,71 +1,54 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import GamesList from './components/GamesList';
-import BackendLinks from './components/BackendLinks';
-import Footer from './components/Footer';
+import Home from './pages/Home';
+import About from './pages/About';
+import Rules from './pages/Rules';
+import Games from './pages/Games';
+import Payments from './pages/Payments';
 import ParticleBackground from './components/ParticleBackground';
 
-function App() {
-  const [currentSection, setCurrentSection] = React.useState<'games' | 'backend'>('games');
+export type Page = 'home' | 'about' | 'rules' | 'games' | 'payments';
 
-  const handleSectionChange = (section: 'games' | 'backend') => {
-    setCurrentSection(section);
-    // Scroll to the top of the content area
-    const contentArea = document.getElementById('content-area');
-    if (contentArea) {
-      contentArea.scrollIntoView({ behavior: 'smooth' });
+function App() {
+  const [currentPage, setCurrentPage] = useState<Page>('home');
+
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'home':
+        return <Home onNavigate={setCurrentPage} />;
+      case 'about':
+        return <About />;
+      case 'rules':
+        return <Rules />;
+      case 'games':
+        return <Games />;
+      case 'payments':
+        return <Payments />;
+      default:
+        return <Home onNavigate={setCurrentPage} />;
     }
   };
 
   return (
-    <div className="min-h-screen bg-dark-950 text-white relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-dark-950 via-dark-900 to-dark-950 text-white relative overflow-hidden">
       <ParticleBackground />
       
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="relative z-10"
-      >
-        <Header currentSection={currentSection} onSectionChange={handleSectionChange} />
-        <main>
-          <Hero onSectionChange={handleSectionChange} />
-          <div id="content-area">
-            {currentSection === 'games' ? (
-              <>
-                <GamesList />
-                <div className="container mx-auto px-4 pb-16">
-                  <motion.button
-                    onClick={() => handleSectionChange('backend')}
-                    className="mx-auto block px-8 py-3 bg-red-600 hover:bg-red-500 text-white rounded-lg font-semibold transition-colors duration-200"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    View Backend Links
-                  </motion.button>
-                </div>
-              </>
-            ) : (
-              <>
-                <BackendLinks />
-                <div className="container mx-auto px-4 pb-16">
-                  <motion.button
-                    onClick={() => handleSectionChange('games')}
-                    className="mx-auto block px-8 py-3 bg-red-600 hover:bg-red-500 text-white rounded-lg font-semibold transition-colors duration-200"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Back to Games
-                  </motion.button>
-                </div>
-              </>
-            )}
-          </div>
-        </main>
-        <Footer />
-      </motion.div>
+      <div className="relative z-10">
+        <Header currentPage={currentPage} onNavigate={setCurrentPage} />
+        
+        <AnimatePresence mode="wait">
+          <motion.main
+            key={currentPage}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+          >
+            {renderPage()}
+          </motion.main>
+        </AnimatePresence>
+      </div>
     </div>
   );
 }

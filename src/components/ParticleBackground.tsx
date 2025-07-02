@@ -10,8 +10,8 @@ const ParticleBackground: React.FC = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const particles: PokerChip[] = [];
-    const particleCount = 30;
+    const particles: CasinoChip[] = [];
+    const particleCount = 25;
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
@@ -21,7 +21,7 @@ const ParticleBackground: React.FC = () => {
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
-    class PokerChip {
+    class CasinoChip {
       x: number;
       y: number;
       size: number;
@@ -30,16 +30,18 @@ const ParticleBackground: React.FC = () => {
       rotation: number;
       rotationSpeed: number;
       color: string;
+      opacity: number;
 
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 20 + 30;
-        this.speedX = (Math.random() - 0.5) * 0.5;
-        this.speedY = (Math.random() - 0.5) * 0.5;
+        this.size = Math.random() * 15 + 20;
+        this.speedX = (Math.random() - 0.5) * 0.3;
+        this.speedY = (Math.random() - 0.5) * 0.3;
         this.rotation = Math.random() * Math.PI * 2;
-        this.rotationSpeed = (Math.random() - 0.5) * 0.02;
-        this.color = Math.random() > 0.5 ? '#FFD700' : '#DC143C';
+        this.rotationSpeed = (Math.random() - 0.5) * 0.01;
+        this.color = Math.random() > 0.5 ? '#eab308' : '#d97706';
+        this.opacity = Math.random() * 0.3 + 0.1;
       }
 
       update() {
@@ -64,7 +66,7 @@ const ParticleBackground: React.FC = () => {
         ctx.save();
         ctx.translate(this.x, this.y);
         ctx.rotate(this.rotation);
-        ctx.globalAlpha = 0.08;
+        ctx.globalAlpha = this.opacity;
 
         // Main chip circle
         ctx.beginPath();
@@ -74,22 +76,31 @@ const ParticleBackground: React.FC = () => {
 
         // Inner ring
         ctx.beginPath();
-        ctx.arc(0, 0, this.size * 0.85, 0, Math.PI * 2);
+        ctx.arc(0, 0, this.size * 0.8, 0, Math.PI * 2);
         ctx.strokeStyle = '#ffffff';
-        ctx.lineWidth = 1;
+        ctx.lineWidth = 1.5;
         ctx.stroke();
 
-        // Decorative dots
-        const dotCount = 8;
-        for (let i = 0; i < dotCount; i++) {
-          const angle = (i / dotCount) * Math.PI * 2;
-          const x = Math.cos(angle) * (this.size * 0.7);
-          const y = Math.sin(angle) * (this.size * 0.7);
+        // Center circle
+        ctx.beginPath();
+        ctx.arc(0, 0, this.size * 0.3, 0, Math.PI * 2);
+        ctx.fillStyle = '#ffffff';
+        ctx.fill();
+
+        // Decorative lines
+        for (let i = 0; i < 8; i++) {
+          const angle = (i / 8) * Math.PI * 2;
+          const startX = Math.cos(angle) * (this.size * 0.4);
+          const startY = Math.sin(angle) * (this.size * 0.4);
+          const endX = Math.cos(angle) * (this.size * 0.7);
+          const endY = Math.sin(angle) * (this.size * 0.7);
           
           ctx.beginPath();
-          ctx.arc(x, y, this.size * 0.1, 0, Math.PI * 2);
-          ctx.fillStyle = '#ffffff';
-          ctx.fill();
+          ctx.moveTo(startX, startY);
+          ctx.lineTo(endX, endY);
+          ctx.strokeStyle = '#ffffff';
+          ctx.lineWidth = 1;
+          ctx.stroke();
         }
 
         ctx.restore();
@@ -97,7 +108,7 @@ const ParticleBackground: React.FC = () => {
     }
 
     for (let i = 0; i < particleCount; i++) {
-      particles.push(new PokerChip());
+      particles.push(new CasinoChip());
     }
 
     const animate = () => {

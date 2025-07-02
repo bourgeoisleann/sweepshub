@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Home, Info, FileText, Gamepad2, CreditCard } from 'lucide-react';
+import type { Page } from '../App';
 
 interface HeaderProps {
-  currentSection: 'games' | 'backend';
-  onSectionChange: (section: 'games' | 'backend') => void;
+  currentPage: Page;
+  onNavigate: (page: Page) => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ currentSection, onSectionChange }) => {
+const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -19,67 +20,79 @@ const Header: React.FC<HeaderProps> = ({ currentSection, onSectionChange }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleSectionChange = (section: 'games' | 'backend') => {
-    onSectionChange(section);
-    setIsMenuOpen(false);
-  };
+  const navigation = [
+    { id: 'home' as Page, label: 'Home', icon: Home },
+    { id: 'about' as Page, label: 'About', icon: Info },
+    { id: 'rules' as Page, label: 'Rules', icon: FileText },
+    { id: 'games' as Page, label: 'Games', icon: Gamepad2 },
+    { id: 'payments' as Page, label: 'Payments', icon: CreditCard },
+  ];
 
-  const scrollToContact = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false);
-    }
+  const handleNavigation = (page: Page) => {
+    onNavigate(page);
+    setIsMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-navy-900/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+        isScrolled ? 'bg-dark-950/95 backdrop-blur-md shadow-2xl border-b border-gold-500/20' : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="container mx-auto px-4 py-3">
+      <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <motion.button
-            onClick={() => handleSectionChange('games')}
-            className="flex items-center space-x-4 text-white font-heading font-bold text-2xl md:text-3xl"
+            onClick={() => handleNavigation('home')}
+            className="flex items-center space-x-4"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <div className="relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-red-600 to-gold-500 rounded-full blur-sm opacity-75"></div>
+              <div className="absolute -inset-2 bg-gradient-to-r from-gold-500 to-amber-500 rounded-xl blur-lg opacity-75 animate-glow"></div>
               <img 
-                src="/sweepshublogo.jpg" 
-                alt="Sweeps Hub" 
-                className="relative h-14 w-14 md:h-16 md:w-16 rounded-full border-2 border-red-500 shadow-lg" 
+                src="/smugglers gaming.jpeg" 
+                alt="Smugglers Gaming" 
+                className="relative h-12 w-12 md:h-16 md:w-16 rounded-xl border-2 border-gold-500 shadow-2xl object-cover" 
               />
             </div>
-            <span className="relative">
-              <span className="absolute -inset-1 bg-gradient-to-r from-red-600 to-gold-500 blur opacity-25"></span>
-              <span className="relative">Sweeps Hub</span>
-            </span>
+            <div className="hidden md:block">
+              <h1 className="text-2xl md:text-3xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">
+                Smugglers Gaming
+              </h1>
+              <p className="text-xs text-gold-300/80 font-medium tracking-wider">PREMIUM CASINO EXPERIENCE</p>
+            </div>
           </motion.button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-4">
-            <motion.a
-              href="#contact"
-              className="px-4 py-2 bg-red-600 hover:bg-red-500 text-white rounded-md font-semibold transition duration-200"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={scrollToContact}
-            >
-              Contact Us
-            </motion.a>
+          <nav className="hidden lg:flex items-center space-x-1">
+            {navigation.map((item) => {
+              const Icon = item.icon;
+              return (
+                <motion.button
+                  key={item.id}
+                  onClick={() => handleNavigation(item.id)}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                    currentPage === item.id
+                      ? 'bg-gradient-to-r from-gold-500 to-amber-500 text-dark-950 shadow-lg'
+                      : 'text-gold-200 hover:text-gold-100 hover:bg-gold-500/10'
+                  }`}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Icon size={18} />
+                  {item.label}
+                </motion.button>
+              );
+            })}
           </nav>
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="md:hidden text-white"
+            className="lg:hidden text-gold-300 p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             whileTap={{ scale: 0.9 }}
           >
@@ -90,7 +103,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection, onSectionChange }) => {
 
       {/* Mobile Navigation */}
       <motion.nav
-        className={`md:hidden fixed inset-x-0 top-[72px] bg-navy-900/95 backdrop-blur-md shadow-lg ${
+        className={`lg:hidden fixed inset-x-0 top-[88px] bg-dark-950/98 backdrop-blur-md shadow-2xl border-b border-gold-500/20 ${
           isMenuOpen ? 'block' : 'hidden'
         }`}
         initial={{ opacity: 0, y: -20 }}
@@ -100,15 +113,25 @@ const Header: React.FC<HeaderProps> = ({ currentSection, onSectionChange }) => {
         }}
         transition={{ duration: 0.2 }}
       >
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex flex-col space-y-3">
-            <a
-              href="#contact"
-              className="px-4 py-3 bg-red-600 hover:bg-red-500 text-white rounded-lg font-semibold text-center transition duration-200"
-              onClick={scrollToContact}
-            >
-              Contact Us
-            </a>
+        <div className="container mx-auto px-4 py-6">
+          <div className="flex flex-col space-y-2">
+            {navigation.map((item) => {
+              const Icon = item.icon;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => handleNavigation(item.id)}
+                  className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium text-left transition-all duration-200 ${
+                    currentPage === item.id
+                      ? 'bg-gradient-to-r from-gold-500 to-amber-500 text-dark-950'
+                      : 'text-gold-200 hover:text-gold-100 hover:bg-gold-500/10'
+                  }`}
+                >
+                  <Icon size={20} />
+                  {item.label}
+                </button>
+              );
+            })}
           </div>
         </div>
       </motion.nav>
