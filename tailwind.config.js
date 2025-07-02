@@ -65,6 +65,10 @@ export default {
         'glow': 'glow 2s ease-in-out infinite alternate',
         'float': 'float 3s ease-in-out infinite',
         'shimmer': 'shimmer 2s linear infinite',
+        'casino-float': 'casino-float 6s ease-in-out infinite',
+        'card-flip': 'card-flip 4s ease-in-out infinite',
+        'chip-spin': 'chip-spin 8s linear infinite',
+        'dice-roll': 'dice-roll 3s ease-in-out infinite',
       },
       keyframes: {
         glow: {
@@ -79,10 +83,51 @@ export default {
           '0%': { transform: 'translateX(-100%)' },
           '100%': { transform: 'translateX(100%)' },
         },
+        'casino-float': {
+          '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+          '25%': { transform: 'translateY(-15px) rotate(90deg)' },
+          '50%': { transform: 'translateY(-10px) rotate(180deg)' },
+          '75%': { transform: 'translateY(-5px) rotate(270deg)' },
+        },
+        'card-flip': {
+          '0%, 100%': { transform: 'rotateY(0deg)' },
+          '50%': { transform: 'rotateY(180deg)' },
+        },
+        'chip-spin': {
+          '0%': { transform: 'rotate(0deg) scale(1)' },
+          '50%': { transform: 'rotate(180deg) scale(1.1)' },
+          '100%': { transform: 'rotate(360deg) scale(1)' },
+        },
+        'dice-roll': {
+          '0%, 100%': { transform: 'rotate(0deg)' },
+          '25%': { transform: 'rotate(90deg)' },
+          '50%': { transform: 'rotate(180deg)' },
+          '75%': { transform: 'rotate(270deg)' },
+        },
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'casino-pattern': 'linear-gradient(45deg, transparent 25%, rgba(234, 179, 8, 0.1) 25%, rgba(234, 179, 8, 0.1) 50%, transparent 50%, transparent 75%, rgba(234, 179, 8, 0.1) 75%)',
+        'casino-pattern': `
+          radial-gradient(circle at 25% 25%, rgba(234, 179, 8, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 75% 75%, rgba(217, 119, 6, 0.1) 0%, transparent 50%),
+          linear-gradient(45deg, transparent 25%, rgba(234, 179, 8, 0.05) 25%, rgba(234, 179, 8, 0.05) 50%, transparent 50%, transparent 75%, rgba(234, 179, 8, 0.05) 75%)
+        `,
+        'casino-texture': `
+          repeating-linear-gradient(
+            45deg,
+            rgba(234, 179, 8, 0.03) 0px,
+            rgba(234, 179, 8, 0.03) 1px,
+            transparent 1px,
+            transparent 20px
+          ),
+          repeating-linear-gradient(
+            -45deg,
+            rgba(217, 119, 6, 0.03) 0px,
+            rgba(217, 119, 6, 0.03) 1px,
+            transparent 1px,
+            transparent 20px
+          )
+        `,
       },
     },
   },
