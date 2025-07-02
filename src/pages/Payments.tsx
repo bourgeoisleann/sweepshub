@@ -7,23 +7,23 @@ const Payments = () => {
     {
       name: 'CashApp',
       logo: 'https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=400',
-      url: 'https://cash.app/',
+      url: 'https://buy.stripe.com/aEUeYH9P32yfdIk9AA',
       description: 'Fast and secure mobile payments',
       features: ['Instant transfers', 'Mobile-first', 'Easy setup']
     },
     {
-      name: 'PayPal',
-      logo: 'https://images.pexels.com/photos/6801874/pexels-photo-6801874.jpeg?auto=compress&cs=tinysrgb&w=400',
-      url: 'https://paypal.com/',
-      description: 'Trusted worldwide payment platform',
-      features: ['Buyer protection', 'Global acceptance', 'Secure transactions']
-    },
-    {
       name: 'Venmo',
       logo: 'https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=400',
-      url: 'https://venmo.com/',
+      url: 'https://venmo.com/u/kaykaylove08',
       description: 'Social payment app for friends',
       features: ['Social payments', 'Quick transfers', 'Mobile app']
+    },
+    {
+      name: 'PayPal',
+      logo: 'https://images.pexels.com/photos/6801874/pexels-photo-6801874.jpeg?auto=compress&cs=tinysrgb&w=400',
+      url: 'https://www.paypal.com/qrcodes/p2pqrc/9PFBDE43LAM56',
+      description: 'Trusted worldwide payment platform',
+      features: ['Buyer protection', 'Global acceptance', 'Secure transactions']
     },
     {
       name: 'Zelle',

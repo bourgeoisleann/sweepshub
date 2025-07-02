@@ -20,19 +20,19 @@ const Rules = () => {
       title: '50% Referral Bonus',
       description: 'Earn 50% bonus when you refer friends to Smugglers Gaming',
       details: [
-        'Referred friend must make minimum $50 deposit',
         'Bonus credited within 48 hours of friend\'s deposit',
         'No limit on number of referrals',
-        'Both you and your friend receive the bonus'
+        'Automatic credit to your account',
+        'Stacks with other bonuses'
       ]
     },
     {
       icon: <Star className="text-gold-400" size={32} />,
-      title: '20% Regular Bonus',
-      description: 'Ongoing 20% bonus for regular players on qualifying deposits',
+      title: '20% Daily Bonus',
+      description: 'Daily bonus for regular players on qualifying deposits',
       details: [
-        'Available on deposits of $100 or more',
-        'Can be claimed once per week',
+        'Available for all registered players',
+        'Can be claimed once per day',
         'Automatic credit to your account',
         'Stacks with VIP rewards'
       ]
@@ -47,9 +47,7 @@ const Rules = () => {
         'Must be 18 years or older to participate in any gaming activities',
         'Valid government-issued photo ID required for account verification',
         'One account per person, household, or IP address strictly enforced',
-        'Players from restricted jurisdictions are prohibited from participation',
-        'Account sharing or allowing others to use your account is forbidden',
-        'Self-exclusion requests will be processed immediately upon request'
+        'Account sharing or allowing others to use your account is forbidden'
       ]
     },
     {
@@ -74,30 +72,6 @@ const Rules = () => {
         'Exploitation of software errors, glitches, or bugs is prohibited',
         'Suspicious betting patterns will trigger account investigation',
         'Game outcomes are final and cannot be disputed after completion'
-      ]
-    },
-    {
-      icon: <Gift className="text-gold-400" size={32} />,
-      title: 'Bonus Terms & Conditions',
-      rules: [
-        'Welcome bonus: 70% on first deposit (min $20, max $500 bonus)',
-        'Referral bonus: 50% when referred friend deposits minimum $50',
-        'Regular bonus: 20% on deposits of $100+ (once per week)',
-        'Bonus funds must be wagered 35x before withdrawal',
-        'Maximum bet with bonus funds: $5 per spin/hand',
-        'Bonuses expire 30 days after being credited to account'
-      ]
-    },
-    {
-      icon: <Clock className="text-gold-400" size={32} />,
-      title: 'Responsible Gaming',
-      rules: [
-        'Set personal deposit limits and stick to them',
-        'Take regular breaks from gaming activities',
-        'Never gamble more than you can afford to lose',
-        'Seek professional help if gambling becomes problematic',
-        'Self-exclusion tools available for 24 hours to permanent',
-        'Underage gambling is strictly prohibited and monitored'
       ]
     },
     {
@@ -223,7 +197,7 @@ const Rules = () => {
               Gaming <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">Regulations</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Comprehensive rules and regulations to ensure fair play and security for all players.
+              Essential rules and regulations to ensure fair play and security for all players.
             </p>
           </motion.div>
 
@@ -296,48 +270,6 @@ const Rules = () => {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Responsible Gaming Footer */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <motion.div 
-            className="text-center max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="w-20 h-20 bg-gradient-to-br from-gold-500/20 to-amber-500/20 rounded-2xl flex items-center justify-center mx-auto mb-8">
-              <Shield className="text-gold-400" size={40} />
-            </div>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
-              Responsible <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">Gaming</span>
-            </h2>
-            <p className="text-xl text-gray-300 leading-relaxed mb-8">
-              Smugglers Gaming is committed to promoting responsible gaming practices. If you or someone you know 
-              has a gambling problem, please seek help from professional organizations.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="https://www.ncpgambling.org/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="px-8 py-3 bg-gradient-to-r from-gold-500 to-amber-500 text-dark-950 rounded-lg font-bold hover:scale-105 transition-transform duration-200"
-              >
-                Get Help Now
-              </a>
-              <a 
-                href="https://www.gamblersanonymous.org/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="px-8 py-3 border-2 border-gold-500 text-gold-300 hover:bg-gold-500/10 rounded-lg font-bold transition-all duration-200"
-              >
-                Support Resources
-              </a>
-            </div>
-          </motion.div>
         </div>
       </section>
     </div>
