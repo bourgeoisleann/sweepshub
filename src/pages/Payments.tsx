@@ -1,29 +1,23 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Shield, Zap, CreditCard } from 'lucide-react';
+import { Shield, Zap, CreditCard } from 'lucide-react';
 
 const Payments = () => {
   const paymentMethods = [
     {
       name: 'CashApp',
-      logo: '/cashapp-logo.png',
-      url: 'https://buy.stripe.com/aEUeYH9P32yfdIk9AA',
-      description: 'Fast and secure mobile payments',
-      features: ['Instant transfers', 'Mobile-first', 'Easy setup']
+      logo: '/cashapp.png',
+      url: 'https://buy.stripe.com/aEUeYH9P32yfdIk9AA'
     },
     {
       name: 'Venmo',
-      logo: '/venmo-logo.png',
-      url: 'https://venmo.com/u/kaykaylove08',
-      description: 'Social payment app for friends',
-      features: ['Social payments', 'Quick transfers', 'Mobile app']
+      logo: '/venmo.png',
+      url: 'https://venmo.com/u/kaykaylove08'
     },
     {
       name: 'PayPal',
-      logo: '/paypal-logo.png',
-      url: 'https://www.paypal.com/qrcodes/p2pqrc/9PFBDE43LAM56',
-      description: 'Trusted worldwide payment platform',
-      features: ['Buyer protection', 'Global acceptance', 'Secure transactions']
+      logo: '/paypal.png',
+      url: 'https://www.paypal.com/qrcodes/p2pqrc/9PFBDE43LAM56'
     }
   ];
 
@@ -106,63 +100,44 @@ const Payments = () => {
               Available <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">Payment Options</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Select your preferred payment method to get started with secure and fast transactions.
+              Click on any payment method below to make a secure deposit.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {paymentMethods.map((method, index) => (
-              <motion.div
-                key={index}
-                className="group relative bg-gradient-to-b from-dark-800 to-dark-900 rounded-2xl overflow-hidden border border-gold-500/20 hover:border-gold-500/50 transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -8 }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-b from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
-                <div className="relative z-10 p-8">
-                  <div className="aspect-square mb-6 rounded-xl overflow-hidden bg-white flex items-center justify-center">
-                    <div className="w-full h-full flex items-center justify-center p-4">
-                      <span className="text-2xl font-bold text-gray-800">{method.name}</span>
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl">
+              {paymentMethods.map((method, index) => (
+                <motion.a
+                  key={index}
+                  href={method.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative bg-gradient-to-b from-dark-800 to-dark-900 rounded-2xl overflow-hidden border border-gold-500/20 hover:border-gold-500/50 transition-all duration-300 p-8"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ y: -8, scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-b from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  
+                  <div className="relative z-10 flex flex-col items-center">
+                    <div className="w-24 h-24 mb-4 rounded-xl overflow-hidden bg-white flex items-center justify-center p-2 group-hover:scale-110 transition-transform duration-300">
+                      <img 
+                        src={method.logo}
+                        alt={`${method.name} logo`}
+                        className="w-full h-full object-contain"
+                      />
                     </div>
+                    
+                    <h3 className="text-xl font-bold text-gold-300 group-hover:text-gold-200 transition-colors duration-200">
+                      {method.name}
+                    </h3>
                   </div>
-                  
-                  <h3 className="text-xl font-bold text-gold-300 mb-3 group-hover:text-gold-200 transition-colors duration-200">
-                    {method.name}
-                  </h3>
-                  
-                  <p className="text-gray-400 mb-4 leading-relaxed">
-                    {method.description}
-                  </p>
-                  
-                  <ul className="space-y-2 mb-6">
-                    {method.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center gap-2 text-sm text-gray-300">
-                        <div className="w-1.5 h-1.5 bg-gold-400 rounded-full"></div>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  <motion.a
-                    href={method.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative flex items-center justify-center gap-2 w-full py-3 bg-gradient-to-r from-gold-500 to-amber-500 hover:from-amber-500 hover:to-gold-500 text-dark-950 rounded-lg font-bold transition-all duration-200 overflow-hidden group/button"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-gold-500 opacity-0 group-hover/button:opacity-100 transition-opacity duration-300"></div>
-                    <span className="relative flex items-center gap-2">
-                      Pay with {method.name} <ExternalLink size={16} />
-                    </span>
-                  </motion.a>
-                </div>
-              </motion.div>
-            ))}
+                </motion.a>
+              ))}
+            </div>
           </div>
         </div>
       </section>

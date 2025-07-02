@@ -7,6 +7,7 @@ import Rules from './pages/Rules';
 import Games from './pages/Games';
 import Payments from './pages/Payments';
 import ParticleBackground from './components/ParticleBackground';
+import Footer from './components/Footer';
 
 export type Page = 'home' | 'about' | 'rules' | 'games' | 'payments';
 
@@ -58,6 +59,8 @@ function App() {
             {renderPage()}
           </motion.main>
         </AnimatePresence>
+        
+        <Footer />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MessageCircle, Phone, Mail, Facebook } from 'lucide-react';
+import { Facebook } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -29,61 +29,17 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-            <ul className="space-y-4">
-              <li>
-                <a 
-                  href="mailto:support@smugglersgaming.com"
-                  className="flex items-center gap-2 text-white/60 hover:text-gold-400 transition-colors duration-200"
-                >
-                  <Mail size={18} />
-                  <span>support@smugglersgaming.com</span>
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://www.facebook.com/smugglers.gaming.hub.2025"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-white/60 hover:text-gold-400 transition-colors duration-200"
-                >
-                  <Facebook size={18} />
-                  <span>Follow us on Facebook</span>
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://signal.me/#eu/PRhrtX5sczCuuGG60-9w-XI1bCjbYIrbhPvdNe7O9HklBQ-Al-pNo5msjVGXu3N_"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-white/60 hover:text-gold-400 transition-colors duration-200"
-                >
-                  <MessageCircle size={18} />
-                  <span>Contact us on Signal</span>
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://wa.me/message/OUZCFCOPNWUGB1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-white/60 hover:text-gold-400 transition-colors duration-200"
-                >
-                  <Phone size={18} />
-                  <span>Message us on WhatsApp</span>
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://t.me/shawnofficial09"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-white/60 hover:text-gold-400 transition-colors duration-200"
-                >
-                  <MessageCircle size={18} />
-                  <span>Chat with us on Telegram</span>
-                </a>
-              </li>
-            </ul>
+            <div className="flex justify-center md:justify-start">
+              <a 
+                href="https://www.facebook.com/smugglers.gaming.hub.2025"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-white/60 hover:text-gold-400 transition-colors duration-200"
+              >
+                <Facebook size={18} />
+                <span>Follow us on Facebook</span>
+              </a>
+            </div>
           </motion.div>
         </div>
         
