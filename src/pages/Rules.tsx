@@ -1,93 +1,135 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, AlertTriangle, Users, Clock, CreditCard, CheckCircle } from 'lucide-react';
+import { Shield, Gift, Users, Clock, CreditCard, CheckCircle, Star, Zap } from 'lucide-react';
 
 const Rules = () => {
-  const ruleCategories = [
+  const bonusStructure = [
     {
-      icon: <Users className="text-gold-400" size={32} />,
-      title: 'Player Eligibility',
-      rules: [
-        'Must be 18 years or older to participate',
-        'Valid government-issued ID required for verification',
-        'One account per person, household, or IP address',
-        'Residents of restricted jurisdictions are prohibited',
-        'Self-exclusion requests will be honored immediately'
+      icon: <Gift className="text-gold-400" size={32} />,
+      title: '70% Welcome Bonus',
+      description: 'New players receive a massive 70% bonus on their first deposit',
+      details: [
+        'Available for first-time depositors only',
+        'Minimum deposit of $20 required',
+        'Maximum bonus amount of $500',
+        'Must be claimed within 24 hours of registration'
       ]
     },
     {
+      icon: <Users className="text-gold-400" size={32} />,
+      title: '50% Referral Bonus',
+      description: 'Earn 50% bonus when you refer friends to Smugglers Gaming',
+      details: [
+        'Referred friend must make minimum $50 deposit',
+        'Bonus credited within 48 hours of friend\'s deposit',
+        'No limit on number of referrals',
+        'Both you and your friend receive the bonus'
+      ]
+    },
+    {
+      icon: <Star className="text-gold-400" size={32} />,
+      title: '20% Regular Bonus',
+      description: 'Ongoing 20% bonus for regular players on qualifying deposits',
+      details: [
+        'Available on deposits of $100 or more',
+        'Can be claimed once per week',
+        'Automatic credit to your account',
+        'Stacks with VIP rewards'
+      ]
+    }
+  ];
+
+  const gameRules = [
+    {
       icon: <Shield className="text-gold-400" size={32} />,
-      title: 'Account Security',
+      title: 'Player Eligibility & Account Rules',
       rules: [
-        'Keep login credentials confidential and secure',
-        'Report suspicious account activity immediately',
-        'Two-factor authentication is strongly recommended',
-        'Account sharing is strictly prohibited',
-        'Regular password updates are encouraged'
+        'Must be 18 years or older to participate in any gaming activities',
+        'Valid government-issued photo ID required for account verification',
+        'One account per person, household, or IP address strictly enforced',
+        'Players from restricted jurisdictions are prohibited from participation',
+        'Account sharing or allowing others to use your account is forbidden',
+        'Self-exclusion requests will be processed immediately upon request'
       ]
     },
     {
       icon: <CreditCard className="text-gold-400" size={32} />,
-      title: 'Financial Transactions',
+      title: 'Deposits & Withdrawals',
       rules: [
-        'All deposits and withdrawals must be from verified accounts',
-        'Minimum and maximum transaction limits apply',
-        'Withdrawal processing time: 24-72 hours',
-        'Anti-money laundering policies are strictly enforced',
-        'Bonus terms and conditions must be met before withdrawal'
+        'All deposits and withdrawals must be from verified payment methods',
+        'Minimum deposit: $20 | Maximum deposit: $5,000 per transaction',
+        'Minimum withdrawal: $50 | Maximum withdrawal: $2,500 per day',
+        'Withdrawal processing time: 24-72 hours for most methods',
+        'Identity verification required for withdrawals over $500',
+        'Anti-money laundering policies strictly enforced'
       ]
     },
     {
       icon: <CheckCircle className="text-gold-400" size={32} />,
-      title: 'Fair Play',
+      title: 'Fair Play & Game Integrity',
       rules: [
-        'Use of bots, scripts, or automated software is prohibited',
-        'Collusion with other players is strictly forbidden',
-        'All games use certified random number generators',
-        'Exploitation of software errors or glitches is prohibited',
-        'Suspicious betting patterns will be investigated'
+        'Use of bots, scripts, or automated software is strictly prohibited',
+        'Collusion with other players or staff members is forbidden',
+        'All games use certified random number generators (RNG)',
+        'Exploitation of software errors, glitches, or bugs is prohibited',
+        'Suspicious betting patterns will trigger account investigation',
+        'Game outcomes are final and cannot be disputed after completion'
+      ]
+    },
+    {
+      icon: <Gift className="text-gold-400" size={32} />,
+      title: 'Bonus Terms & Conditions',
+      rules: [
+        'Welcome bonus: 70% on first deposit (min $20, max $500 bonus)',
+        'Referral bonus: 50% when referred friend deposits minimum $50',
+        'Regular bonus: 20% on deposits of $100+ (once per week)',
+        'Bonus funds must be wagered 35x before withdrawal',
+        'Maximum bet with bonus funds: $5 per spin/hand',
+        'Bonuses expire 30 days after being credited to account'
       ]
     },
     {
       icon: <Clock className="text-gold-400" size={32} />,
       title: 'Responsible Gaming',
       rules: [
-        'Set personal deposit and time limits',
+        'Set personal deposit limits and stick to them',
         'Take regular breaks from gaming activities',
-        'Never chase losses or gamble beyond your means',
-        'Seek help if gambling becomes problematic',
-        'Self-exclusion tools are available upon request'
+        'Never gamble more than you can afford to lose',
+        'Seek professional help if gambling becomes problematic',
+        'Self-exclusion tools available for 24 hours to permanent',
+        'Underage gambling is strictly prohibited and monitored'
       ]
     },
     {
-      icon: <AlertTriangle className="text-gold-400" size={32} />,
-      title: 'Prohibited Activities',
+      icon: <Zap className="text-gold-400" size={32} />,
+      title: 'Platform Rules & Conduct',
       rules: [
-        'Creating multiple accounts to circumvent restrictions',
-        'Using fraudulent payment methods or stolen cards',
-        'Attempting to manipulate game outcomes',
-        'Harassment or abuse of other players or staff',
-        'Violation of any local, state, or federal laws'
+        'Respectful behavior required in all interactions',
+        'Harassment, abuse, or threatening language is prohibited',
+        'Creating multiple accounts to circumvent restrictions is forbidden',
+        'Using fraudulent payment methods or stolen cards is illegal',
+        'Attempting to manipulate game outcomes will result in account closure',
+        'Violation of local, state, or federal laws will be reported'
       ]
     }
   ];
 
   const importantNotices = [
     {
-      title: 'Age Verification',
-      content: 'All players must be 18 years or older. We reserve the right to request proof of age at any time.'
+      title: 'Age Verification Required',
+      content: 'All players must be 18 years or older. We reserve the right to request proof of age at any time. Underage accounts will be immediately closed and funds returned.'
     },
     {
-      title: 'Jurisdiction',
-      content: 'These rules are governed by the laws of our licensing jurisdiction. Players are responsible for compliance with local laws.'
+      title: 'Jurisdiction & Legal Compliance',
+      content: 'These rules are governed by the laws of our licensing jurisdiction. Players are responsible for ensuring compliance with their local gambling laws.'
     },
     {
-      title: 'Rule Changes',
-      content: 'We reserve the right to modify these rules at any time. Players will be notified of significant changes.'
+      title: 'Rule Modifications',
+      content: 'Smugglers Gaming reserves the right to modify these rules at any time. Players will be notified of significant changes via email and platform notifications.'
     },
     {
-      title: 'Dispute Resolution',
-      content: 'All disputes will be handled through our customer support team and, if necessary, through binding arbitration.'
+      title: 'Dispute Resolution Process',
+      content: 'All disputes will be handled through our customer support team first. Unresolved disputes may be escalated to binding arbitration as outlined in our terms of service.'
     }
   ];
 
@@ -108,17 +150,85 @@ const Rules = () => {
               Gaming <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">Rules</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
-              Please read and understand our gaming rules to ensure a fair and enjoyable experience for all players.
+              Please read and understand our gaming rules and bonus structure to ensure a fair and enjoyable experience.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Rules Categories */}
+      {/* Bonus Structure Section */}
       <section className="py-20 bg-gradient-to-b from-dark-900/50 to-dark-950">
         <div className="container mx-auto px-4">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
+              Bonus <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">Structure</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Take advantage of our generous bonus offers designed to maximize your gaming experience.
+            </p>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            {bonusStructure.map((bonus, index) => (
+              <motion.div
+                key={index}
+                className="group relative bg-gradient-to-b from-dark-800 to-dark-900 p-8 rounded-2xl border border-gold-500/20 hover:border-gold-500/50 transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-b from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+                
+                <div className="relative z-10">
+                  <div className="w-16 h-16 bg-gradient-to-br from-gold-500/20 to-amber-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    {bonus.icon}
+                  </div>
+                  <h3 className="text-2xl font-bold text-gold-300 mb-4">{bonus.title}</h3>
+                  <p className="text-gray-300 mb-6 leading-relaxed">{bonus.description}</p>
+                  
+                  <ul className="space-y-3">
+                    {bonus.details.map((detail, detailIndex) => (
+                      <li key={detailIndex} className="flex items-start gap-3 text-gray-400">
+                        <div className="w-2 h-2 bg-gold-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="text-sm leading-relaxed">{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Game Rules Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
+              Gaming <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">Regulations</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Comprehensive rules and regulations to ensure fair play and security for all players.
+            </p>
+          </motion.div>
+
           <div className="grid lg:grid-cols-2 gap-8">
-            {ruleCategories.map((category, index) => (
+            {gameRules.map((category, index) => (
               <motion.div
                 key={index}
                 className="group relative bg-gradient-to-b from-dark-800 to-dark-900 p-8 rounded-2xl border border-gold-500/20 hover:border-gold-500/50 transition-all duration-300"
@@ -138,7 +248,7 @@ const Rules = () => {
                     <h3 className="text-2xl font-bold text-gold-300">{category.title}</h3>
                   </div>
                   
-                  <ul className="space-y-3">
+                  <ul className="space-y-4">
                     {category.rules.map((rule, ruleIndex) => (
                       <li key={ruleIndex} className="flex items-start gap-3 text-gray-300">
                         <div className="w-2 h-2 bg-gold-400 rounded-full mt-2 flex-shrink-0"></div>
@@ -154,7 +264,7 @@ const Rules = () => {
       </section>
 
       {/* Important Notices */}
-      <section className="py-20">
+      <section className="py-20 bg-gradient-to-b from-dark-900/50 to-dark-950">
         <div className="container mx-auto px-4">
           <motion.div 
             className="text-center mb-16"
@@ -167,7 +277,7 @@ const Rules = () => {
               Important <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">Notices</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Please pay special attention to these important notices regarding our gaming platform.
+              Critical information that all players must understand before participating.
             </p>
           </motion.div>
 
@@ -189,8 +299,8 @@ const Rules = () => {
         </div>
       </section>
 
-      {/* Responsible Gaming */}
-      <section className="py-20 bg-gradient-to-b from-dark-900/50 to-dark-950">
+      {/* Responsible Gaming Footer */}
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <motion.div 
             className="text-center max-w-4xl mx-auto"
@@ -206,7 +316,7 @@ const Rules = () => {
               Responsible <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">Gaming</span>
             </h2>
             <p className="text-xl text-gray-300 leading-relaxed mb-8">
-              We are committed to promoting responsible gaming practices. If you or someone you know 
+              Smugglers Gaming is committed to promoting responsible gaming practices. If you or someone you know 
               has a gambling problem, please seek help from professional organizations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
