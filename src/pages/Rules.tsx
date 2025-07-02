@@ -22,8 +22,7 @@ const Rules = () => {
       details: [
         'Must be claimed within 24 hours of friend\'s deposit',
         'No limit on number of referrals',
-        'Automatic credit to your account',
-        'Bonus credited within 48 hours of friend\'s deposit'
+        'Automatic credit to your account'
       ]
     },
     {

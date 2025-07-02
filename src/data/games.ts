@@ -11,7 +11,7 @@ export const games: Game[] = [
     id: 'vblink',
     name: 'VBLINK',
     link: 'https://www.vblink777.club/',
-    logo: '/vl.jpg',
+    logo: '/vblink.jpeg',
     adminUrl: 'https://gm.vblink777.club/#/index'
   },
   {
@@ -72,7 +72,7 @@ export const games: Game[] = [
     id: 'river-sweeps',
     name: 'RIVER SWEEPS',
     link: 'https://river777.com/',
-    logo: '/rm.jpg'
+    logo: '/riversweeps.jpeg'
   },
   {
     id: 'milky-way',
@@ -104,7 +104,14 @@ export const games: Game[] = [
     id: 'high-roller',
     name: 'HIGH ROLLER',
     link: 'https://highrollerdownload.com/',
-    logo: '/goldstargaming.jpg'
+    logo: '/high roller.png'
+  },
+  {
+    id: 'vegas-sweeps',
+    name: 'VEGAS SWEEPS',
+    link: 'https://m.lasvegassweeps.com/',
+    logo: '/vegas sweeps.jpeg',
+    adminUrl: 'https://agent.lasvegassweeps.com/userManagement'
   },
   {
     id: 'casino-ignite',

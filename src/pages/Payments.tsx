@@ -6,59 +6,24 @@ const Payments = () => {
   const paymentMethods = [
     {
       name: 'CashApp',
-      logo: 'https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=400',
+      logo: '/cashapp-logo.png',
       url: 'https://buy.stripe.com/aEUeYH9P32yfdIk9AA',
       description: 'Fast and secure mobile payments',
       features: ['Instant transfers', 'Mobile-first', 'Easy setup']
     },
     {
       name: 'Venmo',
-      logo: 'https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=400',
+      logo: '/venmo-logo.png',
       url: 'https://venmo.com/u/kaykaylove08',
       description: 'Social payment app for friends',
       features: ['Social payments', 'Quick transfers', 'Mobile app']
     },
     {
       name: 'PayPal',
-      logo: 'https://images.pexels.com/photos/6801874/pexels-photo-6801874.jpeg?auto=compress&cs=tinysrgb&w=400',
+      logo: '/paypal-logo.png',
       url: 'https://www.paypal.com/qrcodes/p2pqrc/9PFBDE43LAM56',
       description: 'Trusted worldwide payment platform',
       features: ['Buyer protection', 'Global acceptance', 'Secure transactions']
-    },
-    {
-      name: 'Zelle',
-      logo: 'https://images.pexels.com/photos/6801874/pexels-photo-6801874.jpeg?auto=compress&cs=tinysrgb&w=400',
-      url: 'https://zellepay.com/',
-      description: 'Bank-to-bank transfers',
-      features: ['Direct bank transfer', 'No fees', 'Fast processing']
-    },
-    {
-      name: 'Apple Pay',
-      logo: 'https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=400',
-      url: 'https://apple.com/apple-pay/',
-      description: 'Secure payments with Touch ID',
-      features: ['Biometric security', 'Contactless', 'Privacy focused']
-    },
-    {
-      name: 'Google Pay',
-      logo: 'https://images.pexels.com/photos/6801874/pexels-photo-6801874.jpeg?auto=compress&cs=tinysrgb&w=400',
-      url: 'https://pay.google.com/',
-      description: 'Simple and secure payments',
-      features: ['Google integration', 'Contactless', 'Rewards program']
-    },
-    {
-      name: 'Bitcoin',
-      logo: 'https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=400',
-      url: 'https://bitcoin.org/',
-      description: 'Cryptocurrency payments',
-      features: ['Decentralized', 'Low fees', 'Global access']
-    },
-    {
-      name: 'Ethereum',
-      logo: 'https://images.pexels.com/photos/6801874/pexels-photo-6801874.jpeg?auto=compress&cs=tinysrgb&w=400',
-      url: 'https://ethereum.org/',
-      description: 'Smart contract payments',
-      features: ['Smart contracts', 'Fast transactions', 'DeFi integration']
     }
   ];
 
@@ -76,7 +41,7 @@ const Payments = () => {
     {
       icon: <CreditCard className="text-gold-400" size={32} />,
       title: 'Multiple Options',
-      description: 'Choose from a variety of payment methods to suit your preferences.'
+      description: 'Choose from our trusted payment methods to suit your preferences.'
     }
   ];
 
@@ -145,7 +110,7 @@ const Payments = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {paymentMethods.map((method, index) => (
               <motion.div
                 key={index}
@@ -158,13 +123,11 @@ const Payments = () => {
               >
                 <div className="absolute inset-0 bg-gradient-to-b from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 
-                <div className="relative z-10 p-6">
-                  <div className="aspect-square mb-6 rounded-xl overflow-hidden bg-dark-700">
-                    <img 
-                      src={method.logo}
-                      alt={`${method.name} logo`}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
+                <div className="relative z-10 p-8">
+                  <div className="aspect-square mb-6 rounded-xl overflow-hidden bg-white flex items-center justify-center">
+                    <div className="w-full h-full flex items-center justify-center p-4">
+                      <span className="text-2xl font-bold text-gray-800">{method.name}</span>
+                    </div>
                   </div>
                   
                   <h3 className="text-xl font-bold text-gold-300 mb-3 group-hover:text-gold-200 transition-colors duration-200">
@@ -194,7 +157,7 @@ const Payments = () => {
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-gold-500 opacity-0 group-hover/button:opacity-100 transition-opacity duration-300"></div>
                     <span className="relative flex items-center gap-2">
-                      Visit {method.name} <ExternalLink size={16} />
+                      Pay with {method.name} <ExternalLink size={16} />
                     </span>
                   </motion.a>
                 </div>
