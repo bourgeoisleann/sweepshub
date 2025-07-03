@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Star, Shield, Zap, Crown, MessageCircle } from 'lucide-react';
+import { ArrowRight, Star, Shield, Zap, Crown, MessageCircle, CreditCard } from 'lucide-react';
 import type { Page } from '../App';
 
 interface HomeProps {
@@ -95,12 +95,15 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 </motion.button>
                 
                 <motion.button
-                  onClick={() => onNavigate('about')}
-                  className="px-8 py-4 border-2 border-gold-500 text-gold-300 hover:bg-gold-500/10 rounded-lg font-bold text-lg transition-all duration-300"
+                  onClick={() => onNavigate('payments')}
+                  className="group relative px-8 py-4 bg-gradient-to-r from-green-600 to-green-500 text-white rounded-lg font-bold text-lg overflow-hidden"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Learn More
+                  <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <span className="relative flex items-center gap-2">
+                    Make a Deposit <CreditCard size={20} />
+                  </span>
                 </motion.button>
               </motion.div>
             </motion.div>

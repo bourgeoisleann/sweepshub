@@ -42,7 +42,7 @@ const Payments = () => {
   return (
     <div className="pt-24 md:pt-32">
       {/* Hero Section */}
-      <section className="py-20 md:py-32 relative overflow-hidden">
+      <section className="py-16 md:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-casino-pattern opacity-10"></div>
         
         <div className="container mx-auto px-4 relative z-10">
@@ -52,13 +52,69 @@ const Payments = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6">
               Payment <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">Methods</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
               Choose from our secure and convenient payment options for deposits and withdrawals.
             </p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Payment Methods Grid - Compact Layout */}
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
+              Available <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">Payment Options</span>
+            </h2>
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+              Click on any payment method below to make a secure deposit.
+            </p>
+          </motion.div>
+
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl w-full">
+              {paymentMethods.map((method, index) => (
+                <motion.a
+                  key={index}
+                  href={method.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative bg-gradient-to-b from-dark-800 to-dark-900 rounded-2xl overflow-hidden border border-gold-500/20 hover:border-gold-500/50 transition-all duration-300 p-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ y: -8, scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-b from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  
+                  <div className="relative z-10 flex flex-col items-center">
+                    <div className="w-20 h-20 mb-4 rounded-xl overflow-hidden bg-white flex items-center justify-center p-2 group-hover:scale-110 transition-transform duration-300">
+                      <img 
+                        src={method.logo}
+                        alt={`${method.name} logo`}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    
+                    <h3 className="text-xl font-bold text-gold-300 group-hover:text-gold-200 transition-colors duration-200">
+                      {method.name}
+                    </h3>
+                  </div>
+                </motion.a>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -86,64 +142,8 @@ const Payments = () => {
         </div>
       </section>
 
-      {/* Payment Methods Grid */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
-              Available <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">Payment Options</span>
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Click on any payment method below to make a secure deposit.
-            </p>
-          </motion.div>
-
-          <div className="flex justify-center">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl">
-              {paymentMethods.map((method, index) => (
-                <motion.a
-                  key={index}
-                  href={method.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative bg-gradient-to-b from-dark-800 to-dark-900 rounded-2xl overflow-hidden border border-gold-500/20 hover:border-gold-500/50 transition-all duration-300 p-8"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ y: -8, scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-b from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  
-                  <div className="relative z-10 flex flex-col items-center">
-                    <div className="w-24 h-24 mb-4 rounded-xl overflow-hidden bg-white flex items-center justify-center p-2 group-hover:scale-110 transition-transform duration-300">
-                      <img 
-                        src={method.logo}
-                        alt={`${method.name} logo`}
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                    
-                    <h3 className="text-xl font-bold text-gold-300 group-hover:text-gold-200 transition-colors duration-200">
-                      {method.name}
-                    </h3>
-                  </div>
-                </motion.a>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Security Notice */}
-      <section className="py-20 bg-gradient-to-b from-dark-900/50 to-dark-950">
+      <section className="py-16">
         <div className="container mx-auto px-4">
           <motion.div 
             className="text-center max-w-4xl mx-auto"
@@ -155,10 +155,10 @@ const Payments = () => {
             <div className="w-20 h-20 bg-gradient-to-br from-gold-500/20 to-amber-500/20 rounded-2xl flex items-center justify-center mx-auto mb-8">
               <Shield className="text-gold-400" size={40} />
             </div>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
               Your Security is Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">Priority</span>
             </h2>
-            <p className="text-xl text-gray-300 leading-relaxed mb-8">
+            <p className="text-lg text-gray-300 leading-relaxed mb-8">
               All transactions are protected with industry-standard encryption and security measures. 
               We never store your payment information and all data is transmitted securely.
             </p>
