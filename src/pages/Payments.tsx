@@ -10,6 +10,11 @@ const Payments = () => {
       url: 'https://buy.stripe.com/aEUeYH9P32yfdIk9AA'
     },
     {
+      name: 'Chime',
+      logo: '/IMG_0818.jpeg',
+      url: 'https://app.chime.com/link/qr?u=deezzylee'
+    },
+    {
       name: 'Venmo',
       logo: '/venmo.png',
       url: 'https://venmo.com/u/kaykaylove08'
@@ -81,7 +86,7 @@ const Payments = () => {
           </motion.div>
 
           <div className="flex justify-center">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl w-full">
               {paymentMethods.map((method, index) => (
                 <motion.a
                   key={index}
