@@ -118,5 +118,11 @@ export const games: Game[] = [
     name: 'CASINO IGNITE',
     link: 'https://download.casinoignitee.vip/',
     logo: '/casinoignite.png'
+  },
+  {
+    id: 'mafia',
+    name: 'MAFIA',
+    link: 'https://www.mafia77777.com/m',
+    logo: '/mafia.jpg'
   }
 ];
