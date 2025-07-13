@@ -36,14 +36,12 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-dark-950 shadow-2xl border-b border-gold-500/20' : 'bg-dark-950/95 backdrop-blur-md'
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 bg-dark-950 shadow-2xl border-b border-gold-500/20 transition-all duration-300"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
           <motion.button
             onClick={() => handleNavigation('home')}
@@ -56,14 +54,14 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
               <img 
                 src="/smugglers gaming.jpeg" 
                 alt="Smugglers Gaming" 
-                className="relative h-12 w-12 md:h-16 md:w-16 rounded-xl border-2 border-gold-500 shadow-2xl object-cover" 
+                className="relative h-10 w-10 md:h-12 md:w-12 rounded-lg border-2 border-gold-500 shadow-2xl object-cover" 
               />
             </div>
             <div className="hidden md:block">
-              <h1 className="text-2xl md:text-3xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">
+              <h1 className="text-xl md:text-2xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">
                 Smugglers Gaming
               </h1>
-              <p className="text-xs text-gold-300/80 font-medium tracking-wider">PREMIUM CASINO EXPERIENCE</p>
+              <p className="text-xs text-gold-300/80 font-medium tracking-wider">PREMIUM CASINO</p>
             </div>
           </motion.button>
 
@@ -77,7 +75,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
                   onClick={() => handleNavigation(item.id)}
                   className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
                     currentPage === item.id
-                      ? 'bg-gradient-to-r from-gold-500 to-amber-500 text-dark-950 shadow-lg'
+                      ? 'bg-gradient-to-r from-gold-500 to-amber-500 text-dark-950'
                       : 'text-gold-200 hover:text-gold-100 hover:bg-gold-500/10'
                   }`}
                   whileHover={{ scale: 1.05 }}
@@ -103,7 +101,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
 
       {/* Mobile Navigation */}
       <motion.nav
-        className={`lg:hidden fixed inset-x-0 top-[88px] bg-dark-950 shadow-2xl border-b border-gold-500/20 ${
+        className={`lg:hidden fixed inset-x-0 top-[76px] bg-dark-950 shadow-2xl border-b border-gold-500/20 ${
           isMenuOpen ? 'block' : 'hidden'
         }`}
         initial={{ opacity: 0, y: -20 }}
@@ -113,7 +111,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
         }}
         transition={{ duration: 0.2 }}
       >
-        <div className="container mx-auto px-4 py-6">
+        <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col space-y-2">
             {navigation.map((item) => {
               const Icon = item.icon;
@@ -121,7 +119,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
                 <button
                   key={item.id}
                   onClick={() => handleNavigation(item.id)}
-                  className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium text-left transition-all duration-200 ${
+                  className={`flex items-center gap-3 px-4 py-2 rounded-lg font-medium text-left transition-all duration-200 ${
                     currentPage === item.id
                       ? 'bg-gradient-to-r from-gold-500 to-amber-500 text-dark-950'
                       : 'text-gold-200 hover:text-gold-100 hover:bg-gold-500/10'
