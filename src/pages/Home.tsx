@@ -34,11 +34,11 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
   return (
     <div className="pt-20 md:pt-24">
       {/* Hero Section */}
-      <section className="relative py-12 md:py-16 overflow-hidden">
+      <section className="relative py-8 md:py-12 overflow-hidden">
         <div className="absolute inset-0 bg-casino-pattern opacity-10"></div>
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-8">
+          <div className="flex flex-col lg:flex-row items-center gap-6">
             <motion.div 
               className="lg:w-1/2 text-center lg:text-left"
               initial={{ opacity: 0, x: -50 }}
@@ -46,21 +46,21 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               transition={{ duration: 0.8 }}
             >
               <motion.div
-                className="mb-6"
+                className="mb-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <h1 className="text-4xl md:text-5xl font-serif font-bold leading-tight mb-4">
+                <h1 className="text-3xl md:text-4xl font-serif font-bold leading-tight mb-3">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 via-amber-300 to-gold-500">
                     Smugglers
                   </span>
                   <br />
                   <span className="text-white">Gaming</span>
                 </h1>
-                <div className="flex items-center justify-center lg:justify-start gap-2 mb-4">
+                <div className="flex items-center justify-center lg:justify-start gap-2 mb-3">
                   <div className="h-1 w-12 bg-gradient-to-r from-gold-500 to-amber-500 rounded"></div>
-                  <p className="text-gold-300 font-medium tracking-wider uppercase text-sm">
+                  <p className="text-gold-300 font-medium tracking-wider uppercase text-xs">
                     Premium Casino Experience
                   </p>
                   <div className="h-1 w-12 bg-gradient-to-r from-amber-500 to-gold-500 rounded"></div>
@@ -68,7 +68,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               </motion.div>
 
               <motion.p 
-                className="text-lg md:text-xl text-gray-300 mb-6 leading-relaxed"
+                className="text-base md:text-lg text-gray-300 mb-4 leading-relaxed"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -77,32 +77,32 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               </motion.p>
 
               <motion.div 
-                className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start"
+                className="flex flex-col sm:flex-row gap-2 justify-center lg:justify-start"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
                 <motion.button
                   onClick={() => onNavigate('games')}
-                  className="group relative px-6 py-3 bg-gradient-to-r from-gold-500 to-amber-500 text-dark-950 rounded-lg font-bold text-base overflow-hidden"
+                  className="group relative px-5 py-2.5 bg-gradient-to-r from-gold-500 to-amber-500 text-dark-950 rounded-lg font-bold text-sm overflow-hidden"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-gold-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <span className="relative flex items-center gap-2">
-                    Play Now <ArrowRight size={20} />
+                    Play Now <ArrowRight size={16} />
                   </span>
                 </motion.button>
                 
                 <motion.button
                   onClick={() => onNavigate('payments')}
-                  className="group relative px-6 py-3 bg-gradient-to-r from-green-600 to-green-500 text-white rounded-lg font-bold text-base overflow-hidden"
+                  className="group relative px-5 py-2.5 bg-gradient-to-r from-green-600 to-green-500 text-white rounded-lg font-bold text-sm overflow-hidden"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <span className="relative flex items-center gap-2">
-                    Make a Deposit <CreditCard size={20} />
+                    Make a Deposit <CreditCard size={16} />
                   </span>
                 </motion.button>
               </motion.div>
@@ -119,7 +119,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 <motion.img 
                   src="/smugglers gaming.jpeg" 
                   alt="Smugglers Gaming" 
-                  className="relative w-full max-w-lg h-auto rounded-3xl shadow-2xl border-2 border-gold-500/50"
+                  className="relative w-full max-w-md h-auto rounded-2xl shadow-2xl border-2 border-gold-500/50"
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 />
@@ -130,7 +130,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       </section>
 
       {/* Message Us Now Button Section */}
-      <section className="py-8 relative">
+      <section className="py-4 relative">
         <div className="container mx-auto px-4">
           <motion.div 
             className="text-center"
@@ -143,7 +143,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               href="https://www.facebook.com/smugglers.gaming.hub.2025"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 text-white rounded-xl font-bold text-xl overflow-hidden shadow-2xl"
+              className="group relative inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 text-white rounded-xl font-bold text-lg overflow-hidden shadow-2xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               animate={{
@@ -160,15 +160,15 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-blue-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
               
-              <span className="relative flex items-center gap-4">
-                <MessageCircle size={24} className="animate-pulse" />
-                <span className="text-xl md:text-2xl font-bold">MESSAGE US NOW</span>
-                <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform duration-300" />
+              <span className="relative flex items-center gap-3">
+                <MessageCircle size={20} className="animate-pulse" />
+                <span className="text-lg md:text-xl font-bold">MESSAGE US NOW</span>
+                <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform duration-300" />
               </span>
             </motion.a>
             
             <motion.p 
-              className="mt-4 text-base text-gray-300"
+              className="mt-3 text-sm text-gray-300"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -181,41 +181,41 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       </section>
 
       {/* Features Section */}
-      <section className="py-12 bg-gradient-to-b from-dark-900/50 to-dark-950">
+      <section className="py-6 bg-gradient-to-b from-dark-900/50 to-dark-950">
         <div className="container mx-auto px-4">
           <motion.div 
-            className="text-center mb-10"
+            className="text-center mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
+            <h2 className="text-2xl md:text-3xl font-serif font-bold mb-3">
               Why Choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">Smugglers Gaming</span>
             </h2>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+            <p className="text-base text-gray-300 max-w-3xl mx-auto">
               We provide the ultimate online casino experience with cutting-edge technology and premium service.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
-                className="group relative bg-gradient-to-b from-dark-800 to-dark-900 p-6 rounded-xl border border-gold-500/20 hover:border-gold-500/50 transition-all duration-300"
+                className="group relative bg-gradient-to-b from-dark-800 to-dark-900 p-4 rounded-xl border border-gold-500/20 hover:border-gold-500/50 transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
+                whileHover={{ y: -3 }}
               >
                 <div className="absolute inset-0 bg-gradient-to-b from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
                 
                 <div className="relative z-10">
-                  <div className="w-12 h-12 bg-gradient-to-br from-gold-500/20 to-amber-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-10 h-10 bg-gradient-to-br from-gold-500/20 to-amber-500/20 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
                     {feature.icon}
                   </div>
-                  <h3 className="text-lg font-bold text-gold-300 mb-3">{feature.title}</h3>
+                  <h3 className="text-base font-bold text-gold-300 mb-2">{feature.title}</h3>
                   <p className="text-sm text-gray-400 leading-relaxed">{feature.description}</p>
                 </div>
               </motion.div>
@@ -225,7 +225,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 relative overflow-hidden">
+      <section className="py-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-gold-500/10 to-amber-500/10"></div>
         
         <div className="container mx-auto px-4 relative z-10">
@@ -236,29 +236,29 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
+            <h2 className="text-2xl md:text-3xl font-serif font-bold mb-3">
               Ready to Start Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">Gaming Adventure?</span>
             </h2>
-            <p className="text-lg text-gray-300 mb-6">
+            <p className="text-base text-gray-300 mb-4">
               Join thousands of players who trust Smugglers Gaming for their online casino experience.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <div className="flex flex-col sm:flex-row gap-2 justify-center">
               <motion.button
                 onClick={() => onNavigate('games')}
-                className="group relative px-8 py-3 bg-gradient-to-r from-gold-500 to-amber-500 text-dark-950 rounded-lg font-bold text-base overflow-hidden"
+                className="group relative px-6 py-2.5 bg-gradient-to-r from-gold-500 to-amber-500 text-dark-950 rounded-lg font-bold text-sm overflow-hidden"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-gold-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <span className="relative flex items-center gap-2">
-                  Explore Games <ArrowRight size={20} />
+                  Explore Games <ArrowRight size={16} />
                 </span>
               </motion.button>
               
               <motion.button
                 onClick={() => onNavigate('payments')}
-                className="px-8 py-3 border-2 border-gold-500 text-gold-300 hover:bg-gold-500/10 rounded-lg font-bold text-base transition-all duration-300"
+                className="px-6 py-2.5 border-2 border-gold-500 text-gold-300 hover:bg-gold-500/10 rounded-lg font-bold text-sm transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

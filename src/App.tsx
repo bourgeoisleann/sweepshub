@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Header from './components/Header';
 import Home from './pages/Home';
-import About from './pages/About';
+import Contact from './pages/Contact';
 import Rules from './pages/Rules';
 import Games from './pages/Games';
 import Payments from './pages/Payments';
@@ -19,7 +19,7 @@ function App() {
       case 'home':
         return <Home onNavigate={setCurrentPage} />;
       case 'about':
-        return <About />;
+        return <Contact />;
       case 'rules':
         return <Rules />;
       case 'games':

@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
 
   const navigation = [
     { id: 'home' as Page, label: 'Home', icon: Home },
-    { id: 'about' as Page, label: 'About', icon: Info },
+    { id: 'about' as Page, label: 'Contact', icon: Info },
     { id: 'rules' as Page, label: 'Rules', icon: FileText },
     { id: 'games' as Page, label: 'Games', icon: Gamepad2 },
     { id: 'payments' as Page, label: 'Payments', icon: CreditCard },
