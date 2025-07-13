@@ -34,9 +34,9 @@ const About = () => {
   ];
 
   return (
-    <div className="pt-24 md:pt-32">
+    <div className="pt-20 md:pt-24">
       {/* Hero Section */}
-      <section className="py-20 md:py-32 relative overflow-hidden">
+      <section className="py-12 md:py-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-casino-pattern opacity-10"></div>
         
         <div className="container mx-auto px-4 relative z-10">
@@ -46,10 +46,10 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">
               About <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">Smugglers Gaming</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
               We are the premier destination for online casino gaming, offering an unparalleled experience 
               with cutting-edge technology, premium games, and exceptional service.
             </p>
@@ -58,9 +58,9 @@ const About = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-gradient-to-b from-dark-900/50 to-dark-950">
+      <section className="py-8 bg-gradient-to-b from-dark-900/50 to-dark-950">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
@@ -70,11 +70,11 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-gold-500/20 to-amber-500/20 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 bg-gradient-to-br from-gold-500/20 to-amber-500/20 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                   {stat.icon}
                 </div>
-                <div className="text-3xl md:text-4xl font-bold text-gold-400 mb-2">{stat.number}</div>
-                <div className="text-gray-300 font-medium">{stat.label}</div>
+                <div className="text-2xl md:text-3xl font-bold text-gold-400 mb-1">{stat.number}</div>
+                <div className="text-sm text-gray-300 font-medium">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -82,29 +82,29 @@ const About = () => {
       </section>
 
       {/* Story Section */}
-      <section className="py-20">
+      <section className="py-12">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
                 Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">Story</span>
               </h2>
-              <div className="space-y-6 text-gray-300 leading-relaxed">
-                <p className="text-lg">
+              <div className="space-y-4 text-gray-300 leading-relaxed">
+                <p className="text-base">
                   Founded with a vision to revolutionize online casino gaming, Smugglers Gaming has become 
                   a trusted name in the industry. We combine the excitement of traditional casino games 
                   with modern technology to create an unforgettable gaming experience.
                 </p>
-                <p className="text-lg">
+                <p className="text-base">
                   Our team of gaming experts and technology professionals work tirelessly to ensure that 
                   every aspect of our platform meets the highest standards of quality, security, and fairness.
                 </p>
-                <p className="text-lg">
+                <p className="text-base">
                   With over 18 premium gaming platforms and thousands of satisfied players, we continue 
                   to push the boundaries of what's possible in online casino gaming.
                 </p>
@@ -119,10 +119,10 @@ const About = () => {
               transition={{ duration: 0.8 }}
             >
               <div className="absolute -inset-4 bg-gradient-to-r from-gold-500 to-amber-500 rounded-3xl blur-2xl opacity-20"></div>
-              <img 
+              <img
                 src="/smugglers gaming.jpeg" 
                 alt="Smugglers Gaming Team" 
-                className="relative w-full h-auto rounded-3xl shadow-2xl border-2 border-gold-500/30"
+                className="relative w-full h-auto rounded-2xl shadow-2xl border-2 border-gold-500/30"
               />
             </motion.div>
           </div>
@@ -130,42 +130,42 @@ const About = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 bg-gradient-to-b from-dark-900/50 to-dark-950">
+      <section className="py-12 bg-gradient-to-b from-dark-900/50 to-dark-950">
         <div className="container mx-auto px-4">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
               Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">Values</span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
               These core values guide everything we do and shape the experience we provide to our players.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6">
             {values.map((value, index) => (
               <motion.div
                 key={index}
-                className="group relative bg-gradient-to-b from-dark-800 to-dark-900 p-8 rounded-2xl border border-gold-500/20 hover:border-gold-500/50 transition-all duration-300"
+                className="group relative bg-gradient-to-b from-dark-800 to-dark-900 p-6 rounded-xl border border-gold-500/20 hover:border-gold-500/50 transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -5 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-b from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
                 
                 <div className="relative z-10">
-                  <div className="w-16 h-16 bg-gradient-to-br from-gold-500/20 to-amber-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 bg-gradient-to-br from-gold-500/20 to-amber-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                     {value.icon}
                   </div>
-                  <h3 className="text-2xl font-bold text-gold-300 mb-4">{value.title}</h3>
-                  <p className="text-gray-400 leading-relaxed text-lg">{value.description}</p>
+                  <h3 className="text-xl font-bold text-gold-300 mb-3">{value.title}</h3>
+                  <p className="text-gray-400 leading-relaxed text-base">{value.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -174,7 +174,7 @@ const About = () => {
       </section>
 
       {/* Mission Section */}
-      <section className="py-20 relative overflow-hidden">
+      <section className="py-12 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-gold-500/10 to-amber-500/10"></div>
         
         <div className="container mx-auto px-4 relative z-10">
@@ -185,10 +185,10 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
               Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">Mission</span>
             </h2>
-            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-8">
+            <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-6">
               To provide the most exciting, secure, and fair online casino gaming experience while 
               fostering a responsible gaming environment that prioritizes player satisfaction and safety.
             </p>

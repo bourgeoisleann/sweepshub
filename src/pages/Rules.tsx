@@ -107,9 +107,9 @@ const Rules = () => {
   ];
 
   return (
-    <div className="pt-24 md:pt-32">
+    <div className="pt-20 md:pt-24">
       {/* Hero Section */}
-      <section className="py-20 md:py-32 relative overflow-hidden">
+      <section className="py-12 md:py-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-casino-pattern opacity-10"></div>
         
         <div className="container mx-auto px-4 relative z-10">
@@ -119,10 +119,10 @@ const Rules = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">
               Gaming <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">Rules</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
               Please read and understand our gaming rules and bonus structure to ensure a fair and enjoyable experience.
             </p>
           </motion.div>
@@ -130,44 +130,44 @@ const Rules = () => {
       </section>
 
       {/* Bonus Structure Section */}
-      <section className="py-20 bg-gradient-to-b from-dark-900/50 to-dark-950">
+      <section className="py-12 bg-gradient-to-b from-dark-900/50 to-dark-950">
         <div className="container mx-auto px-4">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
               Bonus <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">Structure</span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
               Take advantage of our generous bonus offers designed to maximize your gaming experience.
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-6">
             {bonusStructure.map((bonus, index) => (
               <motion.div
                 key={index}
-                className="group relative bg-gradient-to-b from-dark-800 to-dark-900 p-8 rounded-2xl border border-gold-500/20 hover:border-gold-500/50 transition-all duration-300"
+                className="group relative bg-gradient-to-b from-dark-800 to-dark-900 p-6 rounded-xl border border-gold-500/20 hover:border-gold-500/50 transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -5 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-b from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
                 
                 <div className="relative z-10">
-                  <div className="w-16 h-16 bg-gradient-to-br from-gold-500/20 to-amber-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 bg-gradient-to-br from-gold-500/20 to-amber-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                     {bonus.icon}
                   </div>
-                  <h3 className="text-2xl font-bold text-gold-300 mb-4">{bonus.title}</h3>
-                  <p className="text-gray-300 mb-6 leading-relaxed">{bonus.description}</p>
+                  <h3 className="text-xl font-bold text-gold-300 mb-3">{bonus.title}</h3>
+                  <p className="text-gray-300 mb-4 leading-relaxed">{bonus.description}</p>
                   
-                  <ul className="space-y-3">
+                  <ul className="space-y-2">
                     {bonus.details.map((detail, detailIndex) => (
                       <li key={detailIndex} className="flex items-start gap-3 text-gray-400">
                         <div className="w-2 h-2 bg-gold-400 rounded-full mt-2 flex-shrink-0"></div>
@@ -183,49 +183,49 @@ const Rules = () => {
       </section>
 
       {/* Game Rules Section */}
-      <section className="py-20">
+      <section className="py-12">
         <div className="container mx-auto px-4">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
               Gaming <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">Regulations</span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
               Essential rules and regulations to ensure fair play and security for all players.
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-2 gap-6">
             {gameRules.map((category, index) => (
               <motion.div
                 key={index}
-                className="group relative bg-gradient-to-b from-dark-800 to-dark-900 p-8 rounded-2xl border border-gold-500/20 hover:border-gold-500/50 transition-all duration-300"
+                className="group relative bg-gradient-to-b from-dark-800 to-dark-900 p-6 rounded-xl border border-gold-500/20 hover:border-gold-500/50 transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -5 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-b from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
                 
                 <div className="relative z-10">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-gold-500/20 to-amber-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-gold-500/20 to-amber-500/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       {category.icon}
                     </div>
-                    <h3 className="text-2xl font-bold text-gold-300">{category.title}</h3>
+                    <h3 className="text-xl font-bold text-gold-300">{category.title}</h3>
                   </div>
                   
-                  <ul className="space-y-4">
+                  <ul className="space-y-3">
                     {category.rules.map((rule, ruleIndex) => (
                       <li key={ruleIndex} className="flex items-start gap-3 text-gray-300">
                         <div className="w-2 h-2 bg-gold-400 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="leading-relaxed">{rule}</span>
+                        <span className="leading-relaxed text-sm">{rule}</span>
                       </li>
                     ))}
                   </ul>
@@ -237,35 +237,35 @@ const Rules = () => {
       </section>
 
       {/* Important Notices */}
-      <section className="py-20 bg-gradient-to-b from-dark-900/50 to-dark-950">
+      <section className="py-12 bg-gradient-to-b from-dark-900/50 to-dark-950">
         <div className="container mx-auto px-4">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
               Important <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">Notices</span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
               Critical information that all players must understand before participating.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
             {importantNotices.map((notice, index) => (
               <motion.div
                 key={index}
-                className="bg-gradient-to-br from-amber-500/10 to-gold-500/10 p-8 rounded-2xl border border-amber-500/30"
+                className="bg-gradient-to-br from-amber-500/10 to-gold-500/10 p-6 rounded-xl border border-amber-500/30"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <h3 className="text-xl font-bold text-amber-300 mb-4">{notice.title}</h3>
-                <p className="text-gray-300 leading-relaxed">{notice.content}</p>
+                <h3 className="text-lg font-bold text-amber-300 mb-3">{notice.title}</h3>
+                <p className="text-gray-300 leading-relaxed text-sm">{notice.content}</p>
               </motion.div>
             ))}
           </div>

@@ -45,9 +45,9 @@ const Payments = () => {
   ];
 
   return (
-    <div className="pt-24 md:pt-32">
+    <div className="pt-20 md:pt-24">
       {/* Hero Section */}
-      <section className="py-16 md:py-20 relative overflow-hidden">
+      <section className="py-12 md:py-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-casino-pattern opacity-10"></div>
         
         <div className="container mx-auto px-4 relative z-10">
@@ -57,10 +57,10 @@ const Payments = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6">
+            <h1 className="text-3xl md:text-4xl font-serif font-bold mb-4">
               Payment <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">Methods</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+            <p className="text-base md:text-lg text-gray-300 leading-relaxed">
               Choose from our secure and convenient payment options for deposits and withdrawals.
             </p>
           </motion.div>
@@ -68,32 +68,32 @@ const Payments = () => {
       </section>
 
       {/* Payment Methods Grid - Compact Layout */}
-      <section className="py-12">
+      <section className="py-8">
         <div className="container mx-auto px-4">
           <motion.div 
-            className="text-center mb-12"
+            className="text-center mb-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
+            <h2 className="text-2xl md:text-3xl font-serif font-bold mb-3">
               Available <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">Payment Options</span>
             </h2>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+            <p className="text-base text-gray-300 max-w-2xl mx-auto">
               Click on any payment method below to make a secure deposit.
             </p>
           </motion.div>
 
           <div className="flex justify-center">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl w-full">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl w-full">
               {paymentMethods.map((method, index) => (
                 <motion.a
                   key={index}
                   href={method.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative bg-gradient-to-b from-dark-800 to-dark-900 rounded-2xl overflow-hidden border border-gold-500/20 hover:border-gold-500/50 transition-all duration-300 p-6"
+                  className="group relative bg-gradient-to-b from-dark-800 to-dark-900 rounded-xl overflow-hidden border border-gold-500/20 hover:border-gold-500/50 transition-all duration-300 p-4"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -104,7 +104,7 @@ const Payments = () => {
                   <div className="absolute inset-0 bg-gradient-to-b from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   
                   <div className="relative z-10 flex flex-col items-center">
-                    <div className="w-20 h-20 mb-4 rounded-xl overflow-hidden bg-white flex items-center justify-center p-2 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-16 h-16 mb-3 rounded-lg overflow-hidden bg-white flex items-center justify-center p-2 group-hover:scale-110 transition-transform duration-300">
                       <img 
                         src={method.logo}
                         alt={`${method.name} logo`}
@@ -112,7 +112,7 @@ const Payments = () => {
                       />
                     </div>
                     
-                    <h3 className="text-xl font-bold text-gold-300 group-hover:text-gold-200 transition-colors duration-200">
+                    <h3 className="text-lg font-bold text-gold-300 group-hover:text-gold-200 transition-colors duration-200">
                       {method.name}
                     </h3>
                   </div>
@@ -124,9 +124,9 @@ const Payments = () => {
       </section>
 
       {/* Payment Features */}
-      <section className="py-16 bg-gradient-to-b from-dark-900/50 to-dark-950">
+      <section className="py-8 bg-gradient-to-b from-dark-900/50 to-dark-950">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             {paymentFeatures.map((feature, index) => (
               <motion.div
                 key={index}
@@ -136,11 +136,11 @@ const Payments = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-gold-500/20 to-amber-500/20 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 bg-gradient-to-br from-gold-500/20 to-amber-500/20 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-bold text-gold-300 mb-4">{feature.title}</h3>
-                <p className="text-gray-400 leading-relaxed">{feature.description}</p>
+                <h3 className="text-lg font-bold text-gold-300 mb-3">{feature.title}</h3>
+                <p className="text-sm text-gray-400 leading-relaxed">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -148,7 +148,7 @@ const Payments = () => {
       </section>
 
       {/* Security Notice */}
-      <section className="py-16">
+      <section className="py-8">
         <div className="container mx-auto px-4">
           <motion.div 
             className="text-center max-w-4xl mx-auto"
@@ -157,27 +157,27 @@ const Payments = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="w-20 h-20 bg-gradient-to-br from-gold-500/20 to-amber-500/20 rounded-2xl flex items-center justify-center mx-auto mb-8">
-              <Shield className="text-gold-400" size={40} />
+            <div className="w-16 h-16 bg-gradient-to-br from-gold-500/20 to-amber-500/20 rounded-xl flex items-center justify-center mx-auto mb-6">
+              <Shield className="text-gold-400" size={32} />
             </div>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
+            <h2 className="text-2xl md:text-3xl font-serif font-bold mb-4">
               Your Security is Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">Priority</span>
             </h2>
-            <p className="text-lg text-gray-300 leading-relaxed mb-8">
+            <p className="text-base text-gray-300 leading-relaxed mb-6">
               All transactions are protected with industry-standard encryption and security measures. 
               We never store your payment information and all data is transmitted securely.
             </p>
-            <div className="grid md:grid-cols-3 gap-6 text-center">
-              <div className="bg-dark-800/50 p-6 rounded-xl border border-gold-500/20">
-                <h3 className="text-lg font-bold text-gold-300 mb-2">SSL Encryption</h3>
+            <div className="grid md:grid-cols-3 gap-4 text-center">
+              <div className="bg-dark-800/50 p-4 rounded-lg border border-gold-500/20">
+                <h3 className="text-base font-bold text-gold-300 mb-2">SSL Encryption</h3>
                 <p className="text-gray-400 text-sm">256-bit SSL encryption for all transactions</p>
               </div>
-              <div className="bg-dark-800/50 p-6 rounded-xl border border-gold-500/20">
-                <h3 className="text-lg font-bold text-gold-300 mb-2">PCI Compliant</h3>
+              <div className="bg-dark-800/50 p-4 rounded-lg border border-gold-500/20">
+                <h3 className="text-base font-bold text-gold-300 mb-2">PCI Compliant</h3>
                 <p className="text-gray-400 text-sm">Fully compliant with payment card industry standards</p>
               </div>
-              <div className="bg-dark-800/50 p-6 rounded-xl border border-gold-500/20">
-                <h3 className="text-lg font-bold text-gold-300 mb-2">24/7 Monitoring</h3>
+              <div className="bg-dark-800/50 p-4 rounded-lg border border-gold-500/20">
+                <h3 className="text-base font-bold text-gold-300 mb-2">24/7 Monitoring</h3>
                 <p className="text-gray-400 text-sm">Continuous security monitoring and fraud detection</p>
               </div>
             </div>
