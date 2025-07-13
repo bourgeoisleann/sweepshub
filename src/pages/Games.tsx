@@ -92,17 +92,17 @@ const Games = () => {
             {filteredGames.map((game, index) => (
               <motion.div
                 key={game.id}
-                className="group relative bg-gradient-to-b from-dark-800 to-dark-900 rounded-2xl overflow-hidden border border-gold-500/20 hover:border-gold-500/50 transition-all duration-300"
+                className="group relative bg-gradient-to-b from-dark-800 to-dark-900 rounded-xl overflow-hidden border border-gold-500/20 hover:border-gold-500/50 transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
+                transition={{ duration: 0.3, delay: index * 0.02 }}
                 whileHover={{ y: -8, scale: 1.02 }}
               >
                 <div className="absolute inset-0 bg-gradient-to-b from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 
-                <div className="relative z-10 p-4">
-                  <div className="aspect-square mb-4 rounded-xl overflow-hidden bg-dark-700">
+                <div className="relative z-10 p-3">
+                  <div className="aspect-square mb-3 rounded-lg overflow-hidden bg-dark-700">
                     <img 
                       src={game.logo}
                       alt={`${game.name} logo`}
@@ -110,7 +110,7 @@ const Games = () => {
                     />
                   </div>
                   
-                  <h3 className="text-lg font-bold text-gold-300 mb-4 text-center group-hover:text-gold-200 transition-colors duration-200">
+                  <h3 className="text-sm font-bold text-gold-300 mb-3 text-center group-hover:text-gold-200 transition-colors duration-200 leading-tight">
                     {game.name}
                   </h3>
                   
@@ -118,13 +118,15 @@ const Games = () => {
                     href={game.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative flex items-center justify-center gap-2 w-full py-3 bg-gradient-to-r from-gold-500 to-amber-500 hover:from-amber-500 hover:to-gold-500 text-dark-950 rounded-lg font-bold transition-all duration-200 overflow-hidden group/button"
+                    className="relative flex items-center justify-center gap-1 w-full py-2 bg-gradient-to-r from-gold-500 to-amber-500 hover:from-amber-500 hover:to-gold-500 text-dark-950 rounded-lg font-bold text-sm transition-all duration-200 overflow-hidden group/button"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-gold-500 opacity-0 group-hover/button:opacity-100 transition-opacity duration-300"></div>
-                    <span className="relative flex items-center gap-2">
-                      Play Now <ExternalLink size={16} />
+                    <span className="relative flex items-center gap-1">
+                      <span className="hidden sm:inline">Play Now</span>
+                      <span className="sm:hidden">Play</span>
+                      <ExternalLink size={14} />
                     </span>
                   </motion.a>
                 </div>

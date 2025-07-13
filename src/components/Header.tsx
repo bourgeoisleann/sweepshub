@@ -37,7 +37,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-dark-950/95 backdrop-blur-md shadow-2xl border-b border-gold-500/20' : 'bg-transparent'
+        isScrolled ? 'bg-dark-950 shadow-2xl border-b border-gold-500/20' : 'bg-dark-950/95 backdrop-blur-md'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -103,7 +103,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
 
       {/* Mobile Navigation */}
       <motion.nav
-        className={`lg:hidden fixed inset-x-0 top-[88px] bg-dark-950/98 backdrop-blur-md shadow-2xl border-b border-gold-500/20 ${
+        className={`lg:hidden fixed inset-x-0 top-[88px] bg-dark-950 shadow-2xl border-b border-gold-500/20 ${
           isMenuOpen ? 'block' : 'hidden'
         }`}
         initial={{ opacity: 0, y: -20 }}
