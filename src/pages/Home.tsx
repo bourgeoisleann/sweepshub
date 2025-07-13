@@ -102,7 +102,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <span className="relative flex items-center gap-2">
-                    Make a Deposit <CreditCard size={16} />
+                    Payment Methods <CreditCard size={16} />
                   </span>
                 </motion.button>
               </motion.div>
